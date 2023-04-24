@@ -14,7 +14,6 @@ I have created an API which performs CRUD operations
 
 View: http://localhost:5000/ </br>
       http://localhost:5000/"id" </br>
-      http://localhost:5000/"name" </br>
 
 create:  http://localhost:5000/create
 

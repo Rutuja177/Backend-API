@@ -10,6 +10,7 @@ I have created an API which performs CRUD operations
 ->clone the repository Flask_Backend-API.
 ->Start the Flask server.
 ->Test the API: You can now test the API by opening your web browser and navigating to http://localhost:5000/. This will display the homepage of your Flask application.
+-> you can use POSTMAN to test all operations.
 
 View: http://localhost:5000/ </br>
       http://localhost:5000/"id" </br>
@@ -21,8 +22,5 @@ update:  http://localhost:5000/updateRecord
 
 delete:   http://localhost:5000/delete
       
-
-
-->download the folder.
-->Open in your 
+      
 STACK: Python, Flask 

@@ -1,0 +1,5 @@
+{
+    "abdfc":{'name':'Omkar Gawade', 'gender':'Male'}, 
+    "bvdft":{'name':'Rutuja Dukhande', 'gender':'Female'},
+    "bneks":{'name':'Sam Dukhande', 'gender':'Female'},
+        }

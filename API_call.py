@@ -1,14 +1,10 @@
-from flask import Flask, request, jsonify#import Flask
-import requests
+from flask import Flask, request, jsonify #import Flask
 from flask_cors import CORS
-import json
 import random
 import string
 
 app = Flask(__name__) #creating flask app
 CORS(app)
-
-#personal_data = {1: {'name': 'Omkar Gawade', 'gender':'female'}, 2:{'name': 'Rutuja', 'gender': 'female'}}
 
 # personal_data = {
 #                 1:{'name':'Omkar Gawade', 'gender':'Male'}, 
@@ -34,14 +30,14 @@ def user_page(num):
     for key, value in personal_data.items():
         if key == num:
             return value
-    return 'wrong data1'
+    return 'wrong id entered.'
 
 @app.route('/<string:name>', methods = ['GET']) #endpoint to view data based on 'name' #Read
 def user_page1(name):
-    for user_id, user_data in personal_data.items():
-        if user_data['name'] == name:
-            return user_data
-    return 'wrong data'
+    for key, value in personal_data.items():
+        if value['name'] == name:
+            return jsonify(value)
+    return 'wrong name entered.'
 
 @app.route('/create', methods = ['POST']) #endpoint to creating new record  #Create
 def createRecord():

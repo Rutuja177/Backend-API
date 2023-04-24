@@ -12,8 +12,8 @@ I have created an API which performs CRUD operations
 ->Test the API: You can now test the API by opening your web browser and navigating to http://localhost:5000/. This will display the homepage of your Flask application.
 
 View: http://localhost:5000/ </br>
-      http://localhost:5000/"id"
-      http://localhost:5000/"name"
+      http://localhost:5000/"id" </br>
+      http://localhost:5000/"name" </br>
 
 create:  http://localhost:5000/create
 

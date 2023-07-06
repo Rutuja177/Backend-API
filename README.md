@@ -1,9 +1,9 @@
 # Backend-API
-I have created an API which performs CRUD operations 
-->Create, 
-->Read 
-->Update
-->delete
+I have created an API that performs CRUD operations 
+<li>Create</li>
+<li>Read</li> 
+<li>Update</li>
+<li>delete</li>
 
 ->Install Python. </br>
 ->Install Flask. </br>

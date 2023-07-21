@@ -50,7 +50,7 @@ def createRecord():
     
    
 #endpoint to update the data 
-@app.route('/updateRecord', methods = ['POST', 'GET']) 
+@app.route('/users/update', methods = ['POST', 'GET'])
 def updateRecord():
     
     jsonData = request.get_json()
@@ -71,7 +71,7 @@ def updateRecord():
     
     return jsonify(key, value,password)
 
-@app.route('/delete', methods = ['POST'])
+@app.route('/users/delete', methods = ['POST'])
 def deleteRecord():
     jsonData = request.get_json()
     key = jsonData['key']

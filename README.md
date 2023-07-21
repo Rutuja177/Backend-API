@@ -23,3 +23,10 @@ delete:   http://localhost:5000/delete
       
       
 STACK: Python, Flask 
+
+You can use this API to test your projects:
+download the zip file
+run the command python API_call.py
+you can test the APIs on localhost. 
+
+You can use Postman to test create, update APIs 

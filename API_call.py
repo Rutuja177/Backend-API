@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify #import Flask
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import random
 import string
@@ -6,43 +6,34 @@ import string
 app = Flask(__name__) #creating flask app
 CORS(app)
 
-# personal_data = {
-#                 1:{'name':'Omkar Gawade', 'gender':'Male'}, 
-#                 2:{'name':'Rutuja Dukhande', 'gender':'Female'},
-#                 3:{'name':'Sam Dukhande', 'gender':'Female'},
-#                  }
 personal_data = {}
-with open("C:/Users/Rutuja/Desktop/Projects/myReactApp/Backend-API/data.txt", "r") as e:
+with open("data.txt", "r") as e:
     personal_data_read = e.read()
 
 personal_data = eval(personal_data_read)
 
-print(personal_data)
 
-    
-@app.route('/', methods = ['GET']) #creating main endpoint
-def main_page():
+#endpoint to get all user data
+@app.route('/users', methods = ['GET'])
+def main_data():
     return personal_data
 
-
-@app.route('/<string:num>', methods=['GET']) #endpoint to view data based on key #Read
-def user_page(num):
+#endpoint to get data based on key or name
+@app.route('/users/<string:id>', methods=['GET']) 
+def getUserByKey(id):
     for key, value in personal_data.items():
-        if key == num:
-            return value
-    return 'wrong id entered.'
-
-@app.route('/<string:name>', methods = ['GET']) #endpoint to view data based on 'name' #Read
-def user_page1(name):
-    for key, value in personal_data.items():
-        if value['name'] == name:
+        if id == key:
             return jsonify(value)
-    return 'wrong name entered.'
+        elif id == value['name']:
+            return jsonify(value)
+        else:
+            return 'Wrong user data entered.'
 
-@app.route('/create', methods = ['POST']) #endpoint to creating new record  #Create
+#endpoint to create a new user data
+@app.route('/create', methods = ['POST']) 
 def createRecord():
     data = request.json
-    #new_id = max(personal_data.keys()) +1
+    
     def generateNewid():
         sample_string = ""
         for i in range(5):
@@ -57,9 +48,9 @@ def createRecord():
     personal_data[new_id] = {'name': data['name'], 'gender': data['gender']}
     return jsonify({'message': 'Person added successfully'}, personal_data[new_id])
     
-    #return jsonify(new_record), 201
-
-@app.route('/updateRecord', methods = ['POST', 'GET']) #endpoint to update the data 
+   
+#endpoint to update the data 
+@app.route('/updateRecord', methods = ['POST', 'GET']) 
 def updateRecord():
     
     jsonData = request.get_json()
@@ -78,7 +69,7 @@ def updateRecord():
                     return "Invalid"
             
     
-    #return jsonify(key, value, subvalue,password)
+    return jsonify(key, value,password)
 
 @app.route('/delete', methods = ['POST'])
 def deleteRecord():
